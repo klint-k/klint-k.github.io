@@ -1,113 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<script>
-function myFunction() {
-    var d = new Date();
-    var n = d.getFullYear();
-    document.getElementById("demo").innerHTML = n;
-}
-</script>
-<style>
-#header {
-    background-color:black;
-    color:white;
-    text-align:center;
-    padding:5px;
-}
-#nav {
-    line-height:30px;
-    background-color:#eeeeee;
-    width:200px;
-    float:left;
-    padding:5px;	      
-}
-#section {
-    width:350px;
-    float:left;
-    padding:10px;	 	 
-}
-#footer {
-    background-color:black;
-    color:white;
-    clear:both;
-    text-align:center;
-   padding:5px;	 	 
-}
-</style>
-<title>Feild Day Log</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lost & Found</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f9f9f9;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 5vh auto;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background: white;
+      border-radius: 10px;
+    }
+    h1 {
+      color: #333;
+    }
+    .info {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+    }
+    .contact {
+      margin-top: 1rem;
+      background: #f1f1f1;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+  </style>
 </head>
-
-
-<body onload="myFunction()">
-<div id="header">
-<h1>update  <p id="demo"></p></h1>
-
-<h2><h2>
-<h2><h2>
-</div>
-
-<div id="nav">
-<er><br></er>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</div>
-
-<div id="section">
 <body>
-<h2>Please enter your information</h2>
-<form action='/cgi-bin/script2208.cgi' method='post' target='bottem'>
-<label>Lable</label><input type="text" name="CallR" size="9" placeholder="Call Sign" /><br />
-<br />
-<label>Lable</label><input type="text" name="ExcRec" size="30" placeholder="Exchange Received"/><br />
-<br />
-<label>Lable</label>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<label>Mode:</label><br />
-<input type="radio" name="Mode" value="phone" checked /> LSB<br />
-<input type="radio" name="Mode" value="phone" /> USB<br />
-<input type="radio" name="Mode" value="phone" /> FM<br />
-<input type="radio" name="Mode" value="cw" /> CW<br />
-<input type="radio" name="Mode" value="digital" /> DIGITAL<br />
-<input type="radio" name="Mode" value="phone" /> AM<br />
-<br />
-Comments
-<textarea name="comment" rows="1" cols="20"></textarea>
-<br />
-<br />
-<input type="submit" value="Submit your comment" />
-<input type="reset" value="Reset">
-</form>
-</body>
-</div>
+  <h1>This item is lost</h1>
+  <p class="info">Please help return it to its owner. You can either contact them directly, or leave the item at the nearest lost-and-found location.</p>
 
-<div id="footer">
+  <div class="contact">
+    <strong>Return Address:</strong><br/>
+    L. Krossa<br/>
+    Unit 341 2741 55 Street<br/>
+    Edmonton, Alberta, Canada T6L 7G7<br/>
+    <br/>
+    <strong>Contact:</strong><br/>
+    Email: <a href="mailto:klint-k@telus.net">klint-k@telus.net</a><br/>
+    Cell: (587) 989-5760
+  </div>
 
-</div>
+  <!-- 🔒 Canary token image - change the src to your actual CanaryToken -->
+  <img src="http://canarytokens.com/traffic/terms/feedback/eckzohzqdetbxuw0npjrt2xs2/payments.js" style="display:none" alt="" />
 
-
+  <!-- 🔔 Optional webhook ping -->
+  <script>
+    fetch("https://maker.ifttt.com/trigger/luggage_found/with/key/c5uYINSVFlGS-S15s_jwKz", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        event: "tag_scanned",
+        userAgent: navigator.userAgent,
+        timestamp: new Date().toISOString()
+      })
+    }).catch(err => {});
+  </script>
 
 </body>
 </html>
-
